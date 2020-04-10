@@ -1,0 +1,38 @@
+<synthetic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://www.xebialabs.com/deployit/synthetic"
+           xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd">
+
+
+    <type type="boawebhook.WebHook" extends="xlrelease.PythonScript" virtual="true">
+        <property name="scriptLocation" default="webhook/Webhook.py" hidden="true" />
+
+        <property name="URL" category="input" label="URL" description="HTTP address to invoke"/>
+        <property name="method" category="input" label="HTTP method" default="GET" description="HTTP method to use : GET, PUT, POST, DELETE, PATCH"/>
+        <property name="body" category="input" required="false" label="HTTP body" size="large" description="HTTP request body"/>
+        <property name="username" category="input" required="false" description="HTTP Basic authentication username"/>
+        <property name="password" password="true" category="input" required="false" description="HTTP Basic authentication password"/>
+        <property name="proxyHost" category="input" label="Proxy Host" required="false" description="HTTP proxy host"/>
+        <property name="proxyPort" category="input" label="Proxy Port" required="false" description="HTTP proxy port"/>
+        <property name="proxyUsername" category="input" label="Proxy Username" required="false" description="HTTP proxy username"/>
+        <property name="proxyPassword" password="true" category="input" label="Proxy Password" required="false" description="HTTP proxy password"/>
+
+        <property name="result" category="output" label="Result 1" required="false" description="Result of the first expression"/>
+        <property name="result2" category="output" label="Result 2" required="false" description="Result of the second expression"/>
+        <property name="result3" category="output" label="Result 3" required="false" description="Result of the third expression"/>
+    </type>
+
+    <type type="boawebhook.XmlWebhook" extends="boawebhook.WebHook">
+        <property name="outputVarHelpText" hidden="true" default="Specify the release variable in which to store the result of the XPath query (optional)" />
+        <property name="xPathExpression" category="input" label="XPath Expression 1" required="false" description="XPath expression to select the first value"/>
+        <property name="xPathExpression2" category="input" label="XPath Expression 2" required="false" description="XPath expression to select the second value"/>
+        <property name="xPathExpression3" category="input" label="XPath Expression 3" required="false" description="XPath expression to select the third value"/>
+    </type>
+
+    <type type="boawebhook.JsonWebhook" extends="boawebhook.WebHook">
+        <property name="outputVarHelpText" hidden="true" default="Specify the release variable in which to store the result of the JSON query (optional)" />
+        <property name="jsonPathExpression" category="input" label="JSON Path Expression 1" required="false" description="JSON Path expression to select the first value"/>
+        <property name="jsonPathExpression2" category="input" label="JSON Path Expression 2" required="false" description="JSON Path expression to select the second value"/>
+        <property name="jsonPathExpression3" category="input" label="JSON Path Expression 3" required="false" description="JSON Path expression to select the third value"/>
+    </type>
+
+</synthetic>
