@@ -36,7 +36,8 @@ else:
     print 'Could not determine Webhook format, neither JsonPath nor XPath expression was provided'
     sys.exit(1)
 
-
+print "printing password from the visible referenced CI [%s]" % credentials['password']
+# Construct the payload.
 uri = urlparse(URL)
 
 host = '%s://%s' % (uri.scheme, uri.netloc)
